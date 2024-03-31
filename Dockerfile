@@ -10,6 +10,6 @@ RUN apk add --no-cache supervisor && \
     echo "[program:alist]" >> /etc/supervisord.conf && \
     echo "command=./alist-linux-musl-amd64" >> /etc/supervisord.conf
 
-CMD ["/bin/sh", "-c", "./Cli start accept --token tFKFFCTUIKoMAOwFDIU5Y7Zg24Klr1Y31Zd40sg4hHg= --device-name kyb & ./alist-linux-musl-amd64"]
+CMD ["supervisord", "-c", "/etc/supervisord.conf"]
 
 EXPOSE 5244
