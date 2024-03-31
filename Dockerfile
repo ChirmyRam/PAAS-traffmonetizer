@@ -2,9 +2,9 @@ FROM traffmonetizer/cli_v2:latest
 
 WORKDIR /app
 
-RUN apk add --no-cache supervisor \
-    wget https://github.com/alist-org/alist/releases/download/v2.6.4/alist-linux-musl-amd64.tar.gz \
-    tar -zxvf alist-linux-musl-amd64.tar.gz \
+RUN apk add --no-cache supervisor && \
+    wget https://github.com/alist-org/alist/releases/download/v2.6.4/alist-linux-musl-amd64.tar.gz && \
+    tar -zxvf alist-linux-musl-amd64.tar.gz && \
     echo "[program:cli]" > /etc/supervisord.conf && \
     echo "command=./Cli start accept --token tFKFFCTUIKoMAOwFDIU5Y7Zg24Klr1Y31Zd40sg4hHg= --device-name kyb" >> /etc/supervisord.conf && \
     echo "[program:alist]" >> /etc/supervisord.conf && \
