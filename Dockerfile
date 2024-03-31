@@ -3,6 +3,7 @@ FROM traffmonetizer/cli_v2:latest
 WORKDIR /app
 
 ADD entrypoint.sh /app/entrypoint.sh
+ADD config.json /app/data/config.json
 
 RUN chmod +x entrypoint.sh && \
     apk add --no-cache supervisor && \
@@ -17,4 +18,4 @@ RUN chmod +x entrypoint.sh && \
 
 ENTRYPOINT ["/app/entrypoint.sh"]
 
-EXPOSE 5244
+EXPOSE 80
