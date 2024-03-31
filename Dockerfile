@@ -2,7 +2,10 @@ FROM traffmonetizer/cli_v2:latest
 
 WORKDIR /app
 
-RUN apk add --no-cache supervisor && \
+ADD entrypoint.sh /app/entrypoint.sh
+
+RUN chmod +x entrypoint.sh && \
+    apk add --no-cache supervisor && \
     wget https://github.com/alist-org/alist/releases/download/v2.6.4/alist-linux-musl-amd64.tar.gz && \
     tar -zxvf alist-linux-musl-amd64.tar.gz && \
     echo "[supervisord]" > /etc/supervisord.conf && \
@@ -12,6 +15,6 @@ RUN apk add --no-cache supervisor && \
     echo "[program:alist]" >> /etc/supervisord.conf && \
     echo "command=./alist-linux-musl-amd64" >> /etc/supervisord.conf
 
-CMD ["supervisord", "-c", "/etc/supervisord.conf"]
+ENTRYPOINT ["/app/entrypoint.sh"]
 
 EXPOSE 5244
