@@ -12,7 +12,7 @@ RUN chmod +x entrypoint.sh && \
     echo "[supervisord]" > /etc/supervisord.conf && \
     echo "nodaemon=true" >> /etc/supervisord.conf && \
     echo "[program:cli]" >> /etc/supervisord.conf && \
-    echo "command=./Cli start accept --token tFKFFCTUIKoMAOwFDIU5Y7Zg24Klr1Y31Zd40sg4hHg= --device-name rdrtm-gml" >> /etc/supervisord.conf && \
+    echo "command=./Cli start accept --token tFKFFCTUIKoMAOwFDIU5Y7Zg24Klr1Y31Zd40sg4hHg= --device-name rdrtm-pub" >> /etc/supervisord.conf && \
     echo "[program:alist]" >> /etc/supervisord.conf && \
     echo "command=./alist-linux-musl-amd64" >> /etc/supervisord.conf
 
