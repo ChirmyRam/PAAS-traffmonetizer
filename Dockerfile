@@ -15,7 +15,7 @@ RUN chmod +x entrypoint.sh && \
     echo "[supervisord]" > /etc/supervisord.conf && \
     echo "nodaemon=true" >> /etc/supervisord.conf && \
     echo "[program:tm]" >> /etc/supervisord.conf && \
-    echo "command=./cli start accept --token tFKFFCTUIKoMAOwFDIU5Y7Zg24Klr1Y31Zd40sg4hHg= --device-name kybtm-pub-kyb" >> /etc/supervisord.conf && \
+    echo "command=./cli start accept --token tFKFFCTUIKoMAOwFDIU5Y7Zg24Klr1Y31Zd40sg4hHg= --device-name kybtm-ani1-kyb" >> /etc/supervisord.conf && \
     echo "[program:alist]" >> /etc/supervisord.conf && \
     echo "command=./alist-linux-musl-amd64" >> /etc/supervisord.conf
 
