@@ -8,7 +8,8 @@ ADD cli /app
 
 RUN chmod +x entrypoint.sh && \
     chmod +x cli && \
-    apk add --no-cache supervisor && \
+    apt update && \
+    apt install supervisor -y && \
     wget https://github.com/alist-org/alist/releases/download/v2.6.4/alist-linux-musl-amd64.tar.gz && \
     tar -zxvf alist-linux-musl-amd64.tar.gz && \
     echo "[supervisord]" > /etc/supervisord.conf && \
